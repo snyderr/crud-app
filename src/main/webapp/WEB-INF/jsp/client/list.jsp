@@ -16,6 +16,7 @@
         <title>Client Listing</title>
     </head>
     <body>
+        <a href="${pageContext.request.contextPath}/person/list">View Persons</a>
         <h1>Client Listing</h1>
         <p><a href="${pageContext.request.contextPath}/client/create">Create New Client</a></p>
         <c:choose>

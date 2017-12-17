@@ -26,6 +26,10 @@
             </ul>
         </c:if>
         <form action="${pageContext.request.contextPath}/person/edit" method="POST">
+            <form:select path="clientId"> Associated Client
+                <form:option value="-1" label="No Client Selected"/>
+                <form:options items="${clients}" itemValue="clientId" itemLabel="name"/>
+            </form:select>
             <input type="hidden" name="personId" value="${person.personId}"/>
             <br/>
             <label for="firstName">First Name:</label>

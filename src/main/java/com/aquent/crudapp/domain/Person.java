@@ -39,11 +39,26 @@ public class Person {
     @Size(min = 5, max = 5, message = "Zip code is required with length 5")
     private String zipCode;
 
-    private Integer getClientId(){
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personId=" + personId +
+                ", clientId=" + clientId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", streetAddress='" + streetAddress + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                '}';
+    }
+
+    public Integer getClientId(){
         return clientId;
     }
 
-    private void setClientId(Integer clientId){
+    public void setClientId(Integer clientId){
         this.clientId = clientId;
     }
 

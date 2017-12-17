@@ -16,6 +16,7 @@
         <title>Person Listing</title>
     </head>
     <body>
+        <a class="pure-button" href="${pageContext.request.contextPath}/client/list">View Clients</a></p>
         <h1>Person Listing</h1>     
         <p><a href="${pageContext.request.contextPath}/person/create">Create New Person</a></p>
         <c:choose>
@@ -26,6 +27,7 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email Address</th>
+                            <th>Client</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -35,6 +37,7 @@
                                 <td>${person.firstName}</td>
                                 <td>${person.lastName}</td>
                                 <td>${person.emailAddress}</td>
+                                <td>${person.clientId}</td>
                                 <td>
                                     <a href="${pageContext.request.contextPath}/person/edit/${person.personId}">Edit Person</a>
                                     <a href="${pageContext.request.contextPath}/person/delete/${person.personId}">Delete Person</a>

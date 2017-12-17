@@ -22,10 +22,10 @@ public class ClientJdbcDao implements ClientDao {
     private static final String SQL_READ_CLIENT = "SELECT * FROM client WHERE client_id = :clientId";
     private static final String SQL_DELETE_CLIENT = "DELETE FROM client WHERE client_id = :clientId";
     private static final String SQL_UPDATE_CLIENT = "UPDATE client SET (client_name, uri, phone_number, street_address, city, state, zip_code)"
-            + " = (:client_name, :uri, :phone_number, :streetAddress, :city, :state, :zipCode)"
+            + " = (:name, :uri, :phoneNumber, :streetAddress, :city, :state, :zipCode)"
             + " WHERE client_id = :clientId";
     private static final String SQL_CREATE_CLIENT = "INSERT INTO client (client_name, uri, phone_number, street_address, city, state, zip_code)"
-            + " VALUES (:client_name, :uri, :phone_number, :streetAddress, :city, :state, :zipCode)";
+            + " VALUES (:name, :uri, :phoneNumber, :streetAddress, :city, :state, :zipCode)";
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
