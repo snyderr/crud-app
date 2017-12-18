@@ -26,6 +26,7 @@ public class ClientJdbcDao implements ClientDao {
             + " WHERE client_id = :clientId";
     private static final String SQL_CREATE_CLIENT = "INSERT INTO client (client_name, uri, phone_number, street_address, city, state, zip_code)"
             + " VALUES (:name, :uri, :phoneNumber, :streetAddress, :city, :state, :zipCode)";
+    private static final String SQL_LIST_ASSOCIATED_PERSONS = "SELECT * FROM client WHERE client_id = :clientId ORDER BY client_name, state, city";
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
@@ -36,7 +37,7 @@ public class ClientJdbcDao implements ClientDao {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Client> listClients() {
-        return namedParameterJdbcTemplate.getJdbcOperations().query(SQL_LIST_CLIENT, new ClientJdbcDao.ClientRowMapper());
+        return namedParameterJdbcTemplate.query(SQL_LIST_CLIENT, new ClientJdbcDao.ClientRowMapper());
     }
 
     @Override

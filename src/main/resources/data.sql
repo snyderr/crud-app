@@ -8,7 +8,7 @@ INSERT INTO person (
     state,
     zip_code
 ) VALUES (
-    01,
+    '1',
     'John',
     'Smith',
     'fake1@aquent.com',
@@ -17,7 +17,7 @@ INSERT INTO person (
     'NC',
     '28801'
 ), (
-    02,
+    '2',
     'Jane',
     'Smith',
     'fake2@aquent.com',
@@ -28,7 +28,6 @@ INSERT INTO person (
 );
 
 INSERT INTO client(
-    client_id,
     client_name,
     uri,
     phone_number,
@@ -37,7 +36,6 @@ INSERT INTO client(
     state,
     zip_code
 ) VALUES (
-  01,
   'Google',
   'google.com',
   '1-800-455-1234',
@@ -46,7 +44,6 @@ INSERT INTO client(
   'CA',
   '94043'
 ), (
-  02,
   'Facebook',
   'facebook.com',
   '1-800-554-4321',

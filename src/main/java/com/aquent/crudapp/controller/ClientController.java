@@ -2,6 +2,7 @@ package com.aquent.crudapp.controller;
 
 import com.aquent.crudapp.domain.Client;
 import com.aquent.crudapp.service.ClientService;
+import com.aquent.crudapp.service.PersonService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,8 @@ public class  ClientController {
 
     @Inject
     private ClientService clientService;
+    @Inject
+    private PersonService personService;
 
     /**
      * Renders the listing page.
@@ -31,6 +34,19 @@ public class  ClientController {
     public ModelAndView list() {
         ModelAndView mav = new ModelAndView("client/list");
         mav.addObject("clients", clientService.listClients());
+        mav.addObject("persons", clientService.listClients());
+        return mav;
+    }
+
+    /**
+     * Lists all persons beloinging to a certain Client
+     *
+     * @return list view populated with the current list of persons associated to the client
+     */
+    @RequestMapping(value = "listAssociatedPersons/{clientId}", method = RequestMethod.GET)
+    public ModelAndView listAssociatedPersons(@PathVariable Integer clientId){
+        ModelAndView mav = new ModelAndView("client/listAssociatedPersons");
+        mav.addObject("persons", personService.listAssociatedPersons(clientId));
         return mav;
     }
 

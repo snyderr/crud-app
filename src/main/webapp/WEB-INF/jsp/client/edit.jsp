@@ -16,6 +16,7 @@
         <title>Edit Client</title>
     </head>
     <body>
+        <a href="${pageContext.request.contextPath}/client/listAssociatedPersons/${client.clientId}">Edit/View Associated Persons</a>
         <h1>Edit Client</h1>
         <c:if test="${fn:length(errors) gt 0}">
             <p>Please correct the following errors in your submission:</p>

@@ -6,6 +6,7 @@
 
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions'%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,10 +27,20 @@
             </ul>
         </c:if>
         <form action="${pageContext.request.contextPath}/person/edit" method="POST">
-            <form:select path="clientId"> Associated Client
-                <form:option value="-1" label="No Client Selected"/>
-                <form:options items="${clients}" itemValue="clientId" itemLabel="name"/>
-            </form:select>
+            <label for="clientId">Associated Client:</label>
+            <select path="clientId">
+                <option selected = "selected">No Associated Contact</option>
+                <c:forEach items="${clients}" var = "client">
+                    <c:if test="${person.clientId eq client.clientId}">
+                        <option selected = "selected" value = "${client.clientId}">${client.name}</option>
+                    </c:if>
+                    <c:if test="${person.clientId ne client.clientId}">
+                        <option value = "${client.clientId}">${client.name}</option>
+                    </c:if>
+                </c:forEach>
+
+
+            </select>
             <input type="hidden" name="personId" value="${person.personId}"/>
             <br/>
             <label for="firstName">First Name:</label>

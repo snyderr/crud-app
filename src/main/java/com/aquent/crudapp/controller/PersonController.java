@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.aquent.crudapp.service.ClientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ public class PersonController {
     public static final String COMMAND_DELETE = "Delete";
 
     @Inject private PersonService personService;
+    @Inject private ClientService clientService;
 
     /**
      * Renders the listing page.
@@ -35,6 +37,20 @@ public class PersonController {
     public ModelAndView list() {
         ModelAndView mav = new ModelAndView("person/list");
         mav.addObject("persons", personService.listPeople());
+        mav.addObject("clients", clientService.listClients());
+        return mav;
+    }
+
+    /**
+     * Shows client that the person is associated with
+     *
+     * @return llist view of information about associated client
+     */
+    @RequestMapping(value = "viewClient/{clientId}", method = RequestMethod.GET)
+    public ModelAndView viewClient(@PathVariable Integer clientId){
+        ModelAndView mav = new ModelAndView("person/viewClient");
+        System.out.println(clientService.readClient(clientId));
+        mav.addObject("clients", clientService.readClient(clientId));
         return mav;
     }
 
@@ -47,6 +63,7 @@ public class PersonController {
     public ModelAndView create() {
         ModelAndView mav = new ModelAndView("person/create");
         mav.addObject("person", new Person());
+        mav.addObject("clients", clientService.listClients());
         mav.addObject("errors", new ArrayList<String>());
         return mav;
     }
@@ -68,6 +85,7 @@ public class PersonController {
         } else {
             ModelAndView mav = new ModelAndView("person/create");
             mav.addObject("person", person);
+            mav.addObject("clients", clientService.listClients());
             mav.addObject("errors", errors);
             return mav;
         }
@@ -83,6 +101,8 @@ public class PersonController {
     public ModelAndView edit(@PathVariable Integer personId) {
         ModelAndView mav = new ModelAndView("person/edit");
         mav.addObject("person", personService.readPerson(personId));
+        System.out.println(clientService.listClients());
+        mav.addObject("clients", clientService.listClients());
         mav.addObject("errors", new ArrayList<String>());
         return mav;
     }

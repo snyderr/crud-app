@@ -37,12 +37,7 @@
                                 <td>${client.uri}</td>
                                 <td>${client.phoneNumber}</td>
                                 <td>
-                                    <c:choose>
-                                        <c:when test="${fn:length(persons) gt 0}">
-                                            <a href="${pageContext.request.contextPath}/client/listClientPersons/${client.clientId}">View Associated Persons</a>
-                                        </c:when>
-                                        <c:otherwise> Client has no Persons </c:otherwise>
-                                    </c:choose>
+                                    <a href="${pageContext.request.contextPath}/client/listAssociatedPersons/${client.clientId}">View Associated Persons</a>
                                     <a href="${pageContext.request.contextPath}/client/edit/${client.clientId}">Edit Client</a>
                                     <a href="${pageContext.request.contextPath}/client/delete/${client.clientId}">Delete Client</a>
                                 </td>

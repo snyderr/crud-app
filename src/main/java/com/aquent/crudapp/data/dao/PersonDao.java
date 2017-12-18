@@ -9,14 +9,12 @@ import java.util.List;
 public interface PersonDao {
 
     /**
-     * Retrieves all persons associated with the client ID
+     * Retrieves all of the person records belonging to clientId.
      *
-     * @param clientId identifier of requested client
-     *
-     * @return list of person records
+     * @return list of person records that belong to clientId
      */
 
-    List<Person> listClientPersons(Integer clientId);
+    List<Person> listAssociatedPersons(Integer clientId);
 
     /**
      * Retrieves all of the person records.
