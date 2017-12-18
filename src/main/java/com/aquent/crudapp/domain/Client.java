@@ -7,20 +7,6 @@ public class Client {
 
     private Integer clientId;
 
-    @Override
-    public String toString() {
-        return "Client{" +
-                "clientId=" + clientId +
-                ", name='" + name + '\'' +
-                ", uri='" + uri + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", streetAddress='" + streetAddress + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                '}';
-    }
-
     @NotNull
     @Size(min=1, max=50, message = "Client name is required with maximum length of 50")
     private String name;

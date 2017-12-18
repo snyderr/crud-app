@@ -102,7 +102,6 @@ public class PersonController {
     public ModelAndView edit(@PathVariable Integer personId) {
         ModelAndView mav = new ModelAndView("person/edit");
         mav.addObject("person", personService.readPerson(personId));
-        System.out.println(clientService.listClients());
         mav.addObject("clients", clientService.listClients());
         mav.addObject("errors", new ArrayList<String>());
         return mav;

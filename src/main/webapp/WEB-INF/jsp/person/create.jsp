@@ -19,37 +19,42 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Create Person</title>
 
-        <style>
-            form {
-                margin: 0 auto;
-                width:300px;
-            }
-
-            form div{
-            }
-
-            input{
-                width:300px;
-            }
-
-            h1 {
-                margin: 0 auto;
-                text-align: center;
-                top: 50px;
-                padding-bottom: 50px;
-            }
-
-            button{
-                height:20px;
-                width:100px;
-                margin: -20px -50px;
-                position:relative;
-                top:50%;
-                left:50%;
-            }
-        </style>
     </head>
+    <style>
+        form {
+            margin: 0 auto;
+            width: 300px;
+        }
+
+        form div{
+        }
+
+        input{
+            width:300px;
+        }
+
+        h1 {
+            margin: 0 auto;
+            text-align: center;
+            top: 50px;
+            padding-bottom: 50px;
+        }
+
+        button{
+            height:20px;
+            width:100px;
+            margin: -20px -50px;
+            position:relative;
+            top:50%;
+            left:50%;
+        }
+        .center{
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
     <body>
+        <p class = "center"><a href="${pageContext.request.contextPath}/person/list">View Persons</a></p>
         <h1>Create Person</h1>
         <c:if test="${fn:length(errors) gt 0}">
             <p>Please correct the following errors in your submission:</p>
@@ -90,11 +95,11 @@
             </div>
             <div class="form-group">
                 <label for="state">State:</label>
-                <input type="text" class="form-control" required = "required" required = "required" data-validation="length" data-validation-length="2-2"  name="state" value="${person.state}"/>
+                <input type="text" class="form-control" required = "required" required = "required" data-validation="length" data-validation-length="2"  name="state" value="${person.state}"/>
             </div>
             <div class="form-group">
                 <label for="zipCode">Zip Code:</label>
-                <input type="text" class="form-control" required = "required" data-validation="length number" data-validation-length="5-5" name="zipCode" value="${person.zipCode}"/>
+                <input type="text" class="form-control" required = "required" data-validation="length number" data-validation-length="5" name="zipCode" value="${person.zipCode}"/>
             </div>
             <div class="form-group">
                 <input type="submit" class="form-group btn btn-primary" name="Submit" value="Submit"/>
