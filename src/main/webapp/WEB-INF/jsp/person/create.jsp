@@ -62,8 +62,7 @@
         <form action="${pageContext.request.contextPath}/person/create" method="POST">
             <div class="form-group">
                 <label for="clientId">Associated Client:</label>
-                <select class="form-control" path="clientId">
-                    <option selected = "selected" value="-1" >No Associated Contact</option>
+                <select class="form-control" path="clientId" name="clientId">
                     <c:forEach items="${clients}" var = "client">
                             <option value = "${client.clientId}">${client.name}</option>
                     </c:forEach>

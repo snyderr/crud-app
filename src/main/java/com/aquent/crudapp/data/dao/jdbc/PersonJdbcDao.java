@@ -25,11 +25,11 @@ public class PersonJdbcDao implements PersonDao {
     private static final String SQL_READ_PERSON = "SELECT * FROM person WHERE person_id = :personId";
     private static final String SQL_READ_ASSOCIATED_PERSONS = "SELECT * FROM person WHERE client_id = :clientId";
     private static final String SQL_DELETE_PERSON = "DELETE FROM person WHERE person_id = :personId";
-    private static final String SQL_UPDATE_PERSON = "UPDATE person SET (client_id, first_name, last_name, email_address, street_address, city, state, zip_code)"
-                                                  + " = (:clientId, :firstName, :lastName, :emailAddress, :streetAddress, :city, :state, :zipCode)"
+    private static final String SQL_UPDATE_PERSON = "UPDATE person SET (first_name, last_name, email_address, street_address, city, state, zip_code, client_id)"
+                                                  + " = (:firstName, :lastName, :emailAddress, :streetAddress, :city, :state, :zipCode, :clientId)"
                                                   + " WHERE person_id = :personId";
-    private static final String SQL_CREATE_PERSON = "INSERT INTO person (client_id, first_name, last_name, email_address, street_address, city, state, zip_code)"
-                                                  + " VALUES (:clientId, :firstName, :lastName, :emailAddress, :streetAddress, :city, :state, :zipCode)";
+    private static final String SQL_CREATE_PERSON = "INSERT INTO person (first_name, last_name, email_address, street_address, city, state, zip_code, client_id)"
+                                                  + " VALUES (:firstName, :lastName, :emailAddress, :streetAddress, :city, :state, :zipCode, :clientId)";
 
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 

@@ -46,10 +46,11 @@ public class PersonController {
      *
      * @return llist view of information about associated client
      */
-    @RequestMapping(value = "viewClient/{clientId}", method = RequestMethod.GET)
-    public ModelAndView viewClient(@PathVariable Integer clientId){
+    @RequestMapping(value = "viewClient/{personId}", method = RequestMethod.GET)
+    public ModelAndView viewClient(@PathVariable Integer personId){
         ModelAndView mav = new ModelAndView("person/viewClient");
-        System.out.println(clientService.readClient(clientId));
+        Person person = personService.readPerson(personId);
+        Integer clientId = person.getClientId();
         mav.addObject("clients", clientService.readClient(clientId));
         return mav;
     }

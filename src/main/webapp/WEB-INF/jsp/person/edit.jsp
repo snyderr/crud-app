@@ -29,7 +29,6 @@
         <form action="${pageContext.request.contextPath}/person/edit" method="POST">
             <label for="clientId">Associated Client:</label>
             <select path="clientId">
-                <option selected = "selected">No Associated Contact</option>
                 <c:forEach items="${clients}" var = "client">
                     <c:if test="${person.clientId eq client.clientId}">
                         <option selected = "selected" value = "${client.clientId}">${client.name}</option>
